@@ -4,24 +4,24 @@ services:
   # https://tile38.com/topics/configuration
   tile1:
     image: tile38/tile38:latest
-    ports:
-      - "127.0.0.1:9852:9851"
-      - "127.0.0.1:4321:4321"
+    #    ports:
+    #      - "127.0.0.1:9852:9851"
+    #      - "127.0.0.1:4321:4321"
     volumes:
       - tile1:/data
       - ./tile38/config-leader.json:/data/config
-    command: [ "tile38-server", "-d", "/data", "--metrics-addr=0.0.0.0:4321"]
+    command: [ "tile38-server", "-d", "/data", "--metrics-addr=0.0.0.0:4321" ]
     networks:
       tile38:
   tile2:
     image: tile38/tile38:latest
-    ports:
-      - "127.0.0.1:9853:9851"
-      - "127.0.0.1:4322:4321"
+    #    ports:
+    #      - "127.0.0.1:9853:9851"
+    #      - "127.0.0.1:4322:4321"
     volumes:
       - tile2:/data
       - ./tile38/config-follower.json:/data/config
-    command: [ "tile38-server", "-d", "/data", "--metrics-addr=0.0.0.0:4321"]
+    command: [ "tile38-server", "-d", "/data", "--metrics-addr=0.0.0.0:4321" ]
     networks:
       tile38:
     depends_on:
