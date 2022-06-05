@@ -1,0 +1,19 @@
+legal:
+  - LICENSE.txt
+
+docs:
+  - README.md
+
+config:
+  - .editorconfig
+  - .github
+  - .gitignore
+
+haproxy:
+  - haproxy/**/*
+
+tile38:
+  - tile38/**/*
+
+compose:
+  - docker-compose.yml
