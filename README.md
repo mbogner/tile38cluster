@@ -1,7 +1,10 @@
 # tile38cluster
 
-Simple tile38 cluster with a leader and a follower. In front sits a haproxy instance that checks for the leader and 
+Simple tile38 cluster with a leader and a follower. In front sits a haproxy instance that checks for the leader and
 forwards traffic to the leader.
+
+Metrics for Prometheus are available via port 4321 from inside the docker network. The port isn't forwarded in the
+default config.
 
 ## Quickstart
 
@@ -11,7 +14,12 @@ This sample only requires docker 19.03.0+.
 docker compose up -d
 ```
 
-With the cluster up and running you can connect to it via 127.0.0.1 on port 9851 with redis-cli.
+With the cluster up and running you can connect to it via 127.0.0.1 on port 9851 with redis-cli with password
+`tile38pass`.
+
+```shell
+redis-cli -p 9851 -a tile38pass
+```
 
 ## WARNING
 
